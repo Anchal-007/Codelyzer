@@ -1,0 +1,23 @@
+<mat-toolbar class="navBar">
+  <div class="nav">
+    <img src="https://www.accolite.com/assets/jpg/homebannerimages/accolite-logo.svg" class="navbar-image" alt="Accolite Digital Logo">
+   <span><button mat-raised-button color="primary" routerLink="/home"> CODELYZER</button></span>
+  </div>  
+<span class="example-spacer"></span>
+   <!-- <a *ngIf="!isLoggedIn" routerLink="/signup" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" style="margin-right: 4%;">
+     Register
+   </a> -->
+   <button mat-raised-button routerLink="/signup" *ngIf="!isLoggedIn">Register</button>
+   <!-- <a *ngIf="!isLoggedIn" routerLink="/login" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" style="margin-right:2%;">
+    Login
+  </a> -->
+  <button mat-raised-button routerLink="/login" *ngIf="!isLoggedIn">Login</button>
+
+  <a *ngIf="isLoggedIn" (click)="logOut()" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" style="margin-right:3%;">
+    Logout
+  </a>
+  <a *ngIf="isLoggedIn&&user!=null"  routerLink="/admin/profile" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" style="margin-right:12%;">
+    {{loginservice.getUserDetails().username}}
+  </a>
+  
+ </mat-toolbar>
