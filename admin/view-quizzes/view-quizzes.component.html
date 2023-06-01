@@ -1,0 +1,42 @@
+<p>view quizz</p>
+<mat-form-field appearance="fill"  class="full-width">
+    <mat-label>Select any category</mat-label>
+    <mat-select name="category">
+       <mat-option *ngFor="let categoryOfQuiz of category" [value]="categoryOfQuiz.category_id" [routerLink]="['/admin/view-quizzes',categoryOfQuiz.category_id]">
+          {{categoryOfQuiz.title}} 
+       </mat-option>
+       <mat-option [routerLink]="['/admin/view-quizzes',0]">All quizzes</mat-option>
+
+    </mat-select>
+  </mat-form-field>
+<mat-card *ngFor="let quiz of quizzes">
+<mat-card-header>
+    <!-- <div mat-card-avatar class="example-header-image"></div> -->
+    <mat-card-title>
+        {{quiz.title}}
+    </mat-card-title>
+    <mat-card-subtitle>
+        {{quiz.active}}
+    </mat-card-subtitle>
+</mat-card-header>
+<mat-card-content>
+    <p>Start Date: {{quiz.date}}</p>
+</mat-card-content>
+<mat-card-content>
+    <p>End Date: {{quiz.end_date}}</p>
+</mat-card-content>
+<mat-card-content>
+    <p>id: {{quiz.quiz_id}}</p>
+</mat-card-content>
+<mat-card-actions>
+    <button (click)="sendQuizDetails(quiz.quiz_id,quiz.title)" mat-flat-button color="accent">View Questions</button>
+  <!-- <button routerLinkActive="list-item-active" [routerLink]="['/view-questions',quiz.quiz_id, quiz.title]">View Questions</button> -->
+    <button mat-stroked-button color="accent">Maximum Marks {{quiz.total_marks}}</button>
+    <button mat-stroked-button color="accent">Number of Questions: {{quiz.number_of_questions}}</button>
+    <button [routerLink]="['/admin/updateQuiz',quiz.quiz_id]" mat-flat-button color="accent" style="margin-left: 10px;">Update Quiz</button>
+    <!-- <button (click)="deleteQuiz(quiz.qid)" mat-flat-button color="warn" style="margin-left: 10px;">Delete Quiz</button> -->
+    <!-- <button mat-flat-button color="accent" style="margin-left: 10px;">Quiz Attempts</button> -->
+    <button [routerLink]="['/admin/add-question',quiz.quiz_id,quiz.title]" mat-flat-button color="accent" style="margin-left: 10px;">Add question</button>
+    <!-- <button (click)="addMoreQuestion(quiz.quiz_id,quiz.title)" mat-flat-button color="accent">Add More Questions</button> -->
+</mat-card-actions>
+</mat-card>

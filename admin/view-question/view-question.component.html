@@ -1,0 +1,42 @@
+<!-- <h1 style="margin-left:5px; margin-top: 2%; ">Question of {{title}}</h1> -->
+<!-- <mat-card-actions>
+  <button class="text-center" mat-raised-button color="primary" style="margin-left:30%;" [routerLink]="['/admin/add-question',quizId,quizTitle]">Add Questions of {{title}}</button>
+</mat-card-actions> -->
+<div *ngIf="questions.length>0" class="container mt-sm-5 my-1" style="margin-top: 3%; margin-left:1%; margin-bottom:3%;">
+    <div class="question ml-sm-5 pl-sm-5 pt-2" *ngFor="let question of questions; let i=index" style="margin-top:2%">
+      
+        <div class="py-2 h5"><b>Ques.{{i+1}} <span [innerHtml]="question.question"></span></b></div>
+        <input type="radio" id="options" name="option" value>
+          <label for="options" *ngIf = "question.option_1">{{question.option_1}}<br></label>
+        <input type="radio" id="options" name="option" value>
+          <label for="options" *ngIf = "question.option_2">{{question.option_2}}<br></label>
+          <input type="radio" id="options" name="option" value>
+          <label for="options" *ngIf = "question.option_3">{{question.option_3}}<br></label>
+          <input type="radio" id="options" name="option" value>
+          <label for="options" *ngIf = "question.option_4">{{question.option_4}}<br></label>
+          <input type="radio" id="options" name="option" value>
+          <label for="options" *ngIf = "question.option_5">{{question.option_5}}<br></label>
+          <input type="radio" id="options" name="option" value>
+          <label for="options" *ngIf = "question.option_6">{{question.option_6}}<br></label>
+          <!-- <input type="radio" *ngIf = "question.option_6" id="options" name="option" value> -->
+          <label for="options" *ngIf = "question.option_7">{{question.option_7}}<br></label>
+          <input type="radio" id="options" name="option" value>
+          <label for="options" *ngIf = "question.option_8">{{question.option_8}}<br></label>
+          <input type="radio" id="options" name="option" value>
+          <label for="options" *ngIf = "question.option_9">{{question.option_9}}<br></label>
+          <input type="radio" id="options" name="option" value>
+          <label for="options" *ngIf = "question.option_10">{{question.option_10}}<br></label>
+        <!-- <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options" style="margin-top: 5%;"> <label class="options">{{question.option_1}} <input type="radio" name="radio"> <span class="checkmark"></span> </label> <label class="options">{{question.option_2}}<input type="radio" name="radio"> <span class="checkmark"></span> </label> <label class="options">{{question.option_3}}<input type="radio" name="radio"> <span class="checkmark"></span> </label> <label class="options">{{question.option_4}} <input type="radio" name="radio"> <span class="checkmark"></span> </label> </div> -->
+        <p>Correct Answer : {{question.answer}}</p>
+        <!-- <mat-card-actions>
+          <button mat-raised-button color="warn" (click)=deleteQuestion(question.quesId)>Delete</button>
+          <button mat-raised-button color="accent" (click)=sendQuestionIdwithTitle(question.quesId)>Update</button>
+        </mat-card-actions> -->
+        <button [routerLink]="['/admin/update-question',quizId,quizTitle]" mat-flat-button color="accent" style="margin-left: 10px;">Update Question</button>
+       
+    </div>
+    <button [routerLink]="['/admin/add-question',quizId,quizTitle]" mat-flat-button color="accent" style="margin-left: 10px;">Add More Questions</button>
+        <!-- <button (click)="addMoreQuestion(quiz.quiz_id,quiz.title)" mat-flat-button color="accent">Add More Questions</button> -->
+
+
+</div>

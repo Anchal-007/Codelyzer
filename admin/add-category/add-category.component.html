@@ -1,0 +1,25 @@
+<div class="mat-card">
+    <div mat-subheader>Add New Category</div>
+    <mat-card-content>
+        <form  (ngSubmit)="addCategory()">
+            <!--This is used for inputs category title-->
+       <mat-form-field class="full-width" appearance="outline">
+           <mat-label><b>Title</b></mat-label>
+           <input required name="title" matInput placeholder="Enter title for category" [(ngModel)]="category.title">    
+       </mat-form-field>
+       <!--This is used for quiz description inputs-->
+       <mat-form-field class="full-width" appearance="outline">
+           <mat-label><b>Category Description</b></mat-label>
+           <input required  name="description" matInput placeholder="Enter description for category" [(ngModel)]="category.description">
+       </mat-form-field>
+       <div class="text-center">
+           <button type="submit" mat-raised-button color="primary" class="add_btn">Add Category</button>
+ 
+           <!-- <button type="reset" style="margin-left: 20px;" color="accent" mat-raised-button>Clear</button> -->
+       </div>
+       </form>
+       <button type="submit" mat-raised-button color="primary" routerLink="/admin/categories">view Category</button>
+ 
+    </mat-card-content>
+</div>
+ 
